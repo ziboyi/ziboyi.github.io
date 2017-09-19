@@ -1,39 +1,747 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fireworks</title>
-    
 
-    <link rel="stylesheet" type="text/css" href="styles.css" media="all" >
-</head>
-<body>
+
+
+
+
+
+
+    <style type="text/css">
+a ,a:hover{text-decoration: none;}
+#myAudio {
+	width: 310px;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+/*音频信息模块*/
+.music_info {
+	padding: 10px;
+	border: 1px solid #000;
+	border-bottom: none;
+	width: 310px;
+	border-radius: 4px 4px 0 0;
+	/*background:-webkit-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat left top,
+				url(bg.jpg) no-repeat left top;
+	background:-moz-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat left top,
+				url(bg.jpg) no-repeat left top;
+	background:-ms-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat left top,
+				url(bg.jpg) no-repeat left top;
+	background:linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat left top,
+				url(bg.jpg) no-repeat left top;*/
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+/*CD模块*/
+.music_info .cd_holder {
+	height: 126px;
+	width: 126px;
+	border: 1px solid #000;
+	border-radius: 4px;
+	float: left;
+	position: relative;
+}
+.music_info .cd_holder .stick {         /*打碟器*/
+	position: absolute;
+	display: block;
+	width: 2px;
+	height: 60px;
+	background-color: rgb(244,244,244);
+	z-index: 100;
+	-webkit-transition:all 300ms ease-in;
+	-moz-transition:all 300ms ease-in;
+	-ms-transition:all 300ms ease-in;
+	transition:all 300ms ease-in;
+
+	-webkit-transform-origin:left top;
+	-moz-transform-origin:left top;
+	-ms-transform-origin:left top;
+	transform-origin:left top;
+}
+.music_info .cd_holder .stick:before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 8px;
+	height: 10px;
+	left: -3px;
+	bottom: 0;
+	background-color: rgb(244,244,244);
+	z-index: 101;
+}
+/*点击播放时打碟器旋转-45度到CD上方*/
+.music_info .cd_holder .stick.play {
+	-webkit-transform:rotate(-45deg);
+	-moz-transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+}
+/*使用CSS3径向渐变来绘制界面中的CD光碟和打碟器*/
+.music_info .cd_holder .cd {
+	width: 94%;
+	height: 94%;
+	position: absolute;
+	left: 3%;
+	top: 3%;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	border: 2px solid rgb(210,210,210);
+	border-radius: 50%; 
+	cursor: pointer;
+	z-index: 99;
+	background:-webkit-radial-gradient(center,circle,transparent,transparent 14%,rgba(255,255,255,0.7) 14%,rgba(255,255,255,0.7) 17%,rgba(255,255,255,0.7) 20%,rgb(87,94,104) 20%,rgb(52,62,75) 100%);
+	background:-moz-radial-gradient(center,circle,transparent,transparent 14%,rgba(255,255,255,0.7) 14%,rgba(255,255,255,0.7) 17%,rgba(255,255,255,0.7) 20%,rgb(87,94,104) 20%,rgb(52,62,75) 100%);
+	background:-ms-radial-gradient(center,circle,transparent,transparent 14%,rgba(255,255,255,0.7) 14%,rgba(255,255,255,0.7) 17%,rgba(255,255,255,0.7) 20%,rgb(87,94,104) 20%,rgb(52,62,75) 100%);
+	background:radial-gradient(center,circle,transparent,transparent 14%,rgba(255,255,255,0.7) 14%,rgba(255,255,255,0.7) 17%,rgba(255,255,255,0.7) 20%,rgb(87,94,104) 20%,rgb(52,62,75) 100%);
+
+	-webkit-transition:all 1s linear;
+	-moz-transition:all 1s linear;
+	-ms-transition:all 1s linear;
+	transition:all 1s linear;
+}
+.music_info .cd_holder .cd:hover {
+	background:-webkit-radial-gradient(center,circle,transparent,transparent 14%,rgba(255,255,255,0.7) 14%,rgba(255,255,255,0.7) 17%,rgba(255,255,255,0.7) 20%,rgb(107,114,124) 20%,rgb(72,82,95) 100%);
+	background:-moz-radial-gradient(center,circle,transparent,transparent 14%,rgba(255,255,255,0.7) 14%,rgba(255,255,255,0.7) 17%,rgba(255,255,255,0.7) 20%,rgb(107,114,124) 20%,rgb(72,82,95) 100%);
+	background:-ms-radial-gradient(center,circle,transparent,transparent 14%,rgba(255,255,255,0.7) 14%,rgba(255,255,255,0.7) 17%,rgba(255,255,255,0.7) 20%,rgb(107,114,124) 20%,rgb(72,82,95) 100%);
+	background:radial-gradient(center,circle,transparent,transparent 14%,rgba(255,255,255,0.7) 14%,rgba(255,255,255,0.7) 17%,rgba(255,255,255,0.7) 20%,rgb(107,114,124) 20%,rgb(72,82,95) 100%);
+}
+/*音频的元信息模块*/
+.music_info .meta_data {
+	height: 124px;
+	width: 150px;
+	float: right;
+	color: #fff;
+	margin-left: 10px;
+	overflow: hidden;
+	position: relative;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	-moz-user-select:none;/**ff*/  
+	-webkit-user-select:none;/**chrome、safari、360极速*/  
+}
+.music_info .singer {
+	font:bold 14px/120% Helvetica,Sans-serif;
+	margin-bottom: 10px;
+}
+.music_info .title {
+	font:bold 12px/120% Helvetica,Sans-serif;
+	color: #fff;
+}
+.volume_control {
+	position: absolute;
+	width: 150px;
+	bottom: 10px;
+}
+.volume_control .decrease,.volume_control .increase {
+	font: 12px/100% "icomoon";
+	color: rgb(220,220,220);
+	text-decoration: none;
+	margin-left: 5px;
+	cursor: pointer;
+}
+/*音量条和进度条外层包裹*/
+.base_bar {
+	height: 10px;
+	border-top: 1px solid rgb(18,18,18);
+	border-bottom: none;
+	border-radius: 5px;
+	display: inline-block;
+	box-shadow: 0 1px 0 rgb(60,61,64);
+	position: relative;
+	background: -webkit-linear-gradient(top,rgb(50,50,50),rgb(40,40,40));
+	background: -moz-linear-gradient(top,rgb(50,50,50),rgb(40,40,40));
+	background: -ms-linear-gradient(top,rgb(50,50,50),rgb(40,40,40));
+	background: linear-gradient(top,rgb(50,50,50),rgb(40,40,40));
+}
+/*音量条和进度条*/
+.progress_bar {
+	display: block;
+	height: 100%;
+	border-radius: 5px;
+	background: -webkit-linear-gradient(top,rgb(101,215,251),rgb(23,137,232));
+	background: -moz-linear-gradient(top,rgb(101,215,251),rgb(23,137,232));
+	background: -ms-linear-gradient(top,rgb(101,215,251),rgb(23,137,232));
+	background: linear-gradient(top,rgb(101,215,251),rgb(23,137,232));
+}
+#myAudio .volume_control .base_bar {width: 100px;}
+#myAudio .volume_control .progress_bar {width: 100%;}
+
+/*音量条的滑动器*/
+.volume_control .slider {
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+	border:1px solid rgb(0,0,0);
+	position: absolute;
+	left: 93px;
+	top: -2px;
+	background: -webkit-linear-gradient(top,rgb(246,246,246),rgb(190,190,190));
+	background: -moz-linear-gradient(top,rgb(246,246,246),rgb(190,190,190));
+	background: -ms-linear-gradient(top,rgb(246,246,246),rgb(190,190,190));
+	background: linear-gradient(top,rgb(246,246,246),rgb(190,190,190));
+}
+/*播放列表*/
+.music_list {
+	margin: 0;
+	padding-left: 40px;
+	background: rgb(20,20,20);
+	display: none;
+	max-height: 100px;
+	overflow: auto;
+}
+.music_list li {
+	margin: 0;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+	list-style-type: decimal;
+}
+.music_list li:hover {color: rgb(242,198,65);}
+.music_list .active {color: rgb(226,63,82);}
+/*播放控制模块*/
+#myAudio .controls {
+	width: 310px;
+	height: 32px;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	border: 1px solid #000;
+	border-radius: 0 0 4px 4px;
+	background-color: rgb(34,34,34);
+}
+#myAudio .controls > div {float: left;}
+#myAudio .controls .play_controls {
+	border-right: 1px solid #000;
+	box-shadow: 1px 0 0 rgb(45,45,45);
+	height: 100%;
+	width: 85px;
+	padding: 6px 0;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+/*使用font-face来制作播放按钮的图标*/
+#myAudio .play_controls a {
+	font-family: "icomoon";
+	color: rgb(220,220,220);
+	cursor: pointer;
+	margin-left: 15px;
+	float: left;
+	font-size: 12px;
+	width: 12px;
+}
+#myAudio .play_controls a:first-child {margin-left: 10px;}
+/*进度条的实现*/
+#myAudio .time_line {
+	padding: 6px 8px;
+	height: 100%;
+	width: 220px;
+	overflow: hidden;
+	white-space: nowrap;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+#myAudio .passed_time, #myAudio .total_time {
+	color: #fff;
+	font-size: 10px;
+	font-family: Helvetica,Sans-serif;
+	-webkit-text-size-adjust:none; 
+}
+#myAudio .time_line .base_bar {
+	width: 140px;
+	background: -webkit-linear-gradient(top,rgb(87,87,87),rgb(87,87,87)) left top/0px 100% no-repeat;
+	background: -moz-linear-gradient(top,rgb(87,87,87),rgb(87,87,87)) left top/0px 100% no-repeat;
+	background: -ms-linear-gradient(top,rgb(87,87,87),rgb(87,87,87)) left top/0px 100% no-repeat;
+	background: linear-gradient(top,rgb(87,87,87),rgb(87,87,87)) left top/0px 100% no-repeat;
+}
+#myAudio .time_line .progress_bar {width: 0;}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+}
+/*歌曲星星评分器的实现*/
+.starbar {
+	width: 100px;
+	height: 20px;
+	margin-top: 5px;
+	background: url("stars.png") 0px 0px repeat-x;
+	position: relative;
+}
+.current-rating {
+	width: 85%;
+	height: 100%;
+	background: url("stars.png") 0px -40px repeat-x;
+	margin: 0;
+	padding: 0;
+}
+.current-rating li {
+	list-style:none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+}
+.current-rating li:hover {background: url("stars.png") 0px -20px repeat-x;}
+.current-rating .star5 {width: 100%;}
+.current-rating .star4 {width: 80%;}
+.current-rating .star3 {width: 60%;}
+.current-rating .star2 {width: 40%;}
+.current-rating .star1 {width: 20%;}
+/*音频播放时CD的旋转动画*/
+.music_info .cd.rotate {
+	-webkit-animation:rotating 1s 0s linear infinite;
+	-moz-animation:rotating 1s 0s linear infinite;
+	-ms-animation:rotating 1s 0s linear infinite;
+}
+@-webkit-keyframes rotating{
+	0%{-webkit-transform:rotate(0deg);}
+	100%{-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes rotating{
+	form {-moz-transform:rotate(0deg);}
+	to {-moz-transform:rotate(360deg);}
+}
+@-ms-keyframes rotating{
+	0%{-ms-transform:rotate(0deg);}
+	100%{-ms-transform:rotate(360deg);}
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+    </style>
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+    var fireworks = function(){
+    this.size = 20;
+    this.rise();
+    }
+    fireworks.prototype = {
+    color:function(){
+    var c = ['0','3','6','9','c','f'];
+    var t = [c[Math.floor(Math.random()*100)%6],'0','f'];
+    t.sort(function(){return Math.random()>0.5?-1:1;});
+    return '#'+t.join('');
+    },
+    aheight:function(){
+    var h = document.documentElement.clientHeight-250;
+    return Math.abs(Math.floor(Math.random()*h-200))+201;
+    },
+
+    firecracker:function(){
+    var b = document.createElement('div');
+    var w = document.documentElement.clientWidth;
+    b.style.position = 'absolute';
+    b.style.color = this.color();
+    b.style.bottom = 0;
+    b.style.left = Math.floor(Math.random()*w)+1+'px';
+    document.body.appendChild(b);
+    return b;
+    },
+    rise:function(){
+    var o = this.firecracker();
+    var n = this.aheight();
+    var c = this.color;
+    var e = this.expl;
+    var s = this.size;
+    var k = n;
+    var m = function(){
+    o.style.bottom = parseFloat(o.style.bottom)+k*0.1+'px';
+    k-=k*0.1;
+    if(k<2){
+    clearInterval(clear);
+    e(o,n,s,c);
+    }
+    }
+    o.innerHTML = '.';
+    if(parseInt(o.style.bottom)<n){
+    var clear = setInterval(m,20);
+    }
+    },
+    expl:function(o,n,s,c){
+    var R=n/3,Ri=n/6,Rii=n/9;
+    var r=0,ri=0,rii=0;
+    for(var i=0;i<s;i++){
+    var span = document.createElement('span');
+    var p = document.createElement('i');
+    var a = document.createElement('a');
+    span.style.position = 'absolute';
+    span.style.fontSize = n/10+'px';
+    span.style.left = 0;
+    span.style.top = 0;
+    span.innerHTML = '*';
+    p.style.position = 'absolute';
+    p.style.left = 0;
+    p.style.top = 0;
+    p.innerHTML = '*';
+    a.style.position = 'absolute';
+    a.style.left = 0;
+    a.style.top = 0;
+    a.innerHTML = '*';
+    o.appendChild(span);
+    o.appendChild(p);
+    o.appendChild(a);
+    }
+    function spr(){
+    r += R*0.1;
+    ri+= Ri*0.06;
+    rii+= Rii*0.06;
+    sp = o.getElementsByTagName('span');
+    p = o.getElementsByTagName('i');
+    a = o.getElementsByTagName('a');
+    for(var i=0; i<sp.length;i++){
+    sp[i].style.color = c();
+    p[i].style.color = c();
+    a[i].style.color = c();
+    sp[i].style.left=0.5*r*Math.cos(360/s*i)*Math.acos(Math.sin(360/s*i + Math.PI))+'px';
+    sp[i].style.top=0.5*r*Math.sin(360/s*i)*Math.acos(Math.sin(360/s*i + Math.PI))+'px';
+    sp[i].style.fontSize=parseFloat(sp[i].style.fontSize)*0.96+'px';
+    p[i].style.left=0.5*ri*Math.cos(360/s*i)*Math.acos(Math.sin(360/s*i + Math.PI))+'px';
+    p[i].style.top=0.5*ri*Math.sin(360/s*i)*Math.acos(Math.sin(360/s*i + Math.PI))+'px';
+    p[i].style.fontSize=parseFloat(sp[i].style.fontSize)*0.96+'px';
+    a[i].style.left=0.5*rii*Math.cos(360/s*i)*Math.acos(Math.sin(360/s*i + Math.PI))+'px';
+    a[i].style.top=0.5*rii*Math.sin(360/s*i)*Math.acos(Math.sin(360/s*i + Math.PI))+'px';
+    a[i].style.fontSize=parseFloat(sp[i].style.fontSize)*0.96+'px';
+    }
+    R-=R*0.1;
+    if(R<2){
+    o.innerHTML = '';
+    o.parentNode.removeChild(o);
+    clearInterval(clearI);
+    }
+    }
+    var clearI = setInterval(spr,20);
+    }
+    }
+    window.onload = function(){
+    function happyNewYear(){
+    new fireworks();
+    }
+    setInterval(happyNewYear,1000);
+    }
+    </script>
+
+
+    </head>
+
+    <body style="background:#000;font:12px Georgia, 'Times New Roman', Times, serif">
+
+
 
 <div class="page">
 
     <section class="demo">
         <div id="myAudio" style="margin:0 auto;">
-			<p>Hello</p>
-			<audio>
-				<source title="王若琳 - Wild World.mp3" src="http://music.huoxing.com/upload/20121215/1355575227640_8200.mp3" />
-				<source title="韦礼安 - 还是会.mp3" src="http://stream18.qqmusic.qq.com/31005070.mp3" />
-				<source title="王若琳 - Lost in paradise.mp3" src="http://stream12.qqmusic.qq.com/30416842.mp3" />
-				<source title="郁可唯 - 时间煮雨.mp3" src="http://stream16.qqmusic.qq.com/34825889.mp3" />
-				<source title="王若琳 - 三个人的晚餐.mp3" src="http://stream17.qqmusic.qq.com/30966988.mp3" />
-				<source title="王若琳 - I Love You.mp3" src="http://stream17.qqmusic.qq.com/30416851.mp3" />
-				<source title="王若琳 - Lemon Tree(中文版).mp3" src="http://stream17.qqmusic.qq.com/30966990.mp3" />
-				<source title="王若琳 - 亲密爱人.mp3" src="http://stream17.qqmusic.qq.com/30966572.mp3" />
-			</audio>
-		</div>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script type="text/javascript" src="AudioPlayer.js"></script>
-		<script type="text/javascript">
-			$(function(){
-				$("#myAudio").initAudio();
+            <audio>
+                <source title="Long time no see" src="../music/LongTimeNoSee.mp3" />
+                <source title="王若琳 - Wild World.mp3" src="http://music.huoxing.com/upload/20121215/1355575227640_8200.mp3" />
+                
+            </audio>
+        </div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+        <script type="text/javascript">
+(function($){
+	jQuery.fn.extend({
+		"initAudio" : function(){
+			/*添加播放器UI组件*/
+			this.append(
+				'<div class="music_info clearfix">\
+					<div class="cd_holder"><span class="stick"></span><div class="cd"></div></div>\
+					<div class="meta_data">\
+						<span class="title"></span>\
+						<div class="rating">\
+							<div class="starbar">\
+								<ul class="current-rating" data-score="85">\
+									<li class="star5"></li>\
+									<li class="star4"></li>\
+									<li class="star3"></li>\
+									<li class="star2"></li>\
+									<li class="star1"></li>\
+								</ul>\
+							</div>\
+						</div>\
+						<div class="volume_control">\
+							<a class="decrease">a</a>\
+							<span class="base_bar">\
+								<span class="progress_bar"></span>\
+								<a class="slider"></a>\
+							</span>\
+							<a class="increase">b</a>\
+						</div>\
+					</div>\
+				</div>\
+				<ul class="music_list"></ul>\
+				<div class="controls">\
+					<div class="play_controls">\
+						<a class="btn_previous">e</a>\
+						<a class="btn_play">c</a>\
+						<a class="btn_next">d</a>\
+					</div>\
+					<div class="time_line">\
+						<span class="passed_time">0:00</span>\
+						<span class="base_bar">\
+							<span class="progress_bar"></span>\
+						</span>\
+						<span class="total_time">0:00</span>\
+					</div>\
+				</div>'
+			);
+			/*全局变量*/
+			var myAudio = $("audio",this)[0],
+				$volume_bar = $(".volume_control .progress_bar"),
+				$progress_bar = $(".time_line .progress_bar"),
+				$slider = $(".volume_control .slider"),
+				$passed_time = $(".time_line .passed_time"),
+				currentSrcIndex = 0,
+				currentSrc = "";
+
+			/*为播放列表添加歌曲信息*/
+			initMusicList();
+			/*调控音量方法*/
+			HTMLAudioElement.prototype.changeVolumeTo = function(volume){
+				this.volume = volume;
+				$volume_bar.css("width",volume*100 + "%");
+				$slider.css("left",volume*100 - 7 + "px");
+			}
+			/*为播放器添加事件监听*/
+			/*播放、暂停、上一首、下一首功能实现*/
+			$(".btn_play").click(function(){
+				if (myAudio.paused) {
+					myAudio.play();
+				} else {
+					myAudio.pause();
+				}
 			});
-		</script>
+			$(".btn_next").click(function(){
+				var musicsAmount = $("#myAudio source").length;
+				++currentSrcIndex > musicsAmount - 1 && (currentSrcIndex = 0);
+				currentSrc = $("#myAudio source").eq(currentSrcIndex).prop("src");
+				myAudio.src = currentSrc;
+				myAudio.play();
+			});
+			$(".btn_previous").click(function(){
+				--currentSrcIndex < 0 && (currentSrcIndex = 0);
+				currentSrc = $("#myAudio source").eq(currentSrcIndex).prop("src");
+				myAudio.src = currentSrc;
+				myAudio.play();
+			});
+			/*音量调控功能实现*/
+			$(".volume_control .decrease").click(function() {
+				var volume = myAudio.volume - 0.1;
+				volume < 0 && (volume = 0);
+				myAudio.changeVolumeTo(volume);
+			});
+			$(".volume_control .increase").click(function() {
+				var volume = myAudio.volume + 0.1;
+				volume > 1 && (volume = 1);
+				myAudio.changeVolumeTo(volume);
+			});
+			$(".volume_control .base_bar").mousedown(function(ev){
+				var posX = ev.clientX;
+				var targetLeft = $(this).offset().left;
+				var volume = (posX - targetLeft)/100;
+				volume > 1 && (volume = 1);
+				volume < 0 && (volume = 0);
+				myAudio.changeVolumeTo(volume);
+			});
+			$(".volume_control .slider").mousedown(starDrag = function(ev) {
+				ev.preventDefault();
+				var origLeft = $(this).position().left;      /*滑块初始位置*/
+				var origX = ev.clientX;						/*鼠标初始位置*/
+				var target = this;
+				$(document).mousemove(doDrag = function(ev){
+					ev.preventDefault();
+					var moveX = ev.clientX - origX;        /*计算鼠标移动的距离*/
+					var curLeft = origLeft + moveX;			/*用鼠标移动的距离表示滑块的移动距离*/
+					(curLeft < -7) && (curLeft = -7);
+					(curLeft > 93) && (curLeft = 93);
+					myAudio.changeVolumeTo((curLeft + 7)/100);
+				});
+				$(document).mouseup(stopDrag = function(){
+					$(document).unbind("mousemove",doDrag);
+					$(document).unbind("mouseup",stopDrag);
+				});
+			});
+			/*音频进度条调控功能实现*/
+			$(".time_line .base_bar").mousedown(function(ev){
+				var posX = ev.clientX;
+				var targetLeft = $(this).offset().left;
+				var percentage = (posX - targetLeft)/140 * 100;
+				myAudio.currentTime = myAudio.duration * percentage / 100;
+			});
+			$(".music_info .cd").click(function(){
+				$(".music_list").slideToggle(600);
+			});
+			$(".music_list").click(function(ev){
+				var index = $(ev.target).index();
+				currentSrcIndex = index;
+				currentSrc = $("#myAudio source").eq(currentSrcIndex).prop("src");
+				myAudio.src = currentSrc;
+				myAudio.play();
+
+			});
+			/*audio元素事件绑定*/
+			$(myAudio).bind("loadedmetadata",function(){
+				var totalTime = formatTime(myAudio.duration);
+				var title = $("#myAudio source").eq(currentSrcIndex).attr("title");
+				$(".time_line .total_time").text(totalTime);
+				$(".meta_data .title").text(title);
+			});
+			$(myAudio).bind("timeupdate",function(){
+				var duration = this.duration;
+				var curTime = this.currentTime;
+				var percentage = curTime/duration * 100;
+				$progress_bar.css("width",percentage + "%");
+
+				var passedTime = formatTime(curTime);
+				$passed_time.text(passedTime);						
+			});
+			$(myAudio).bind("play",function(){
+				$(".btn_play").text("h");
+				$(".music_list li").eq(currentSrcIndex).addClass("active")
+				.siblings().removeClass("active");
+				$(".music_info .cd").addClass("rotate");
+				$(".cd_holder .stick").addClass("play");
+			});
+			$(myAudio).bind("pause",function(){
+				$(".btn_play").text("c");
+				$(".music_info .cd").removeClass("rotate");
+				$(".cd_holder .stick").removeClass("play");
+			});
+			$(myAudio).bind("ended",function(){
+				$(".btn_next").triggerHandler("click");
+			});
+			$(myAudio).bind("progress",function(){
+				if (myAudio.buffered.length == 1) {
+				  // only one range
+				  if (myAudio.buffered.start(0) == 0) {
+				    // The one range starts at the beginning and ends at
+				    // the end of the video, so the whole thing is loaded
+				    var buffered = myAudio.buffered.end(0);
+				    var percentage = buffered/myAudio.duration * 100;
+				    $(".time_line .base_bar").css("background-size",percentage + "% 100%");
+				  }
+				}
+				
+			});
+			$(myAudio).trigger("loadedmetadata");
+			/*歌曲播放时间的格式化，将秒数格式化为“分:秒”的形式*/
+			function formatTime(time) {
+				var minutes = parseInt(time/60);
+				var seconds = parseInt(time%60);
+				seconds<10 && (seconds = "0" + seconds);
+				return minutes + ":" + seconds;
+			};
+			/*拖拽歌曲到播放器功能实现*/
+			var $dropbox = $("#myAudio");
+			
+			$dropbox.bind("dragenter",dragenter = function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+			});
+			$dropbox.bind("dragover",dragover = function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+			});
+			$dropbox.bind("drop",drop = function(e) {
+				e.stopPropagation();
+				e.preventDefault();
+
+				var dt = e.originalEvent.dataTransfer;
+				var files = dt.files;
+
+				handleFiles(files);
+			});
+	
+			function handleFiles(files) {
+				var sources = "";
+        		var len = files.length;
+				var url;
+				for (var i = 0; i < len; i++) {
+					url = createObjectURL(files[i]);
+					sources = "<source title='" + files[i].name + "' src='" + url + "'>" + sources;
+				}
+				$(myAudio).append(sources);
+				initMusicList();
+				
+			}
+
+			function createObjectURL(file) {
+				if (window.URL) {
+					return window.URL.createObjectURL(file);
+				} else if (window.webkitURL) {
+					return window.webkit.createObjectURL(file);
+				} else {
+					return null;
+				}
+			}
+			function revokeObjectURL(url) {
+				if (window.URL) {
+					window.URL.revokeObjectURL(url);
+				} else if (window.webkitURL) {
+					window.webkitURL.revokeObjectURL(url);
+				}
+			}
+
+			function initMusicList() {
+				var musics = "";
+				var $sourceList = $("#myAudio source");
+				for (var i = $sourceList.length - 1; i>=0; i--) {
+					musics = "<li>" + $sourceList[i].title + "</li>" + musics;
+				}
+				$(".music_list").html(musics);
+                $(".music_list").slideToggle(600);
+			}
+		}
+	});
+})(jQuery)
+	</script>
+
+
+
+
+        <script type="text/javascript">
+            $(function(){
+                $("#myAudio").initAudio();
+            });
+        </script>
     </section>
 
 </div>
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+    </html>
+    
