@@ -3,6 +3,8 @@
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fireworks</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="all" >
+
     <script type="text/javascript">
     var fireworks = function(){
     this.size = 20;
@@ -115,7 +117,42 @@
     <style type="text/css">
     </style>
     </head>
+
     <body style="background:#000;font:12px Georgia, 'Times New Roman', Times, serif">
+
+
+
+<div class="page">
+
+    <section class="demo">
+        <div id="myAudio" style="margin:0 auto;">
+            <audio>
+                <source title="Long time no see" src="../music/LongTimeNoSee.mp3" />
+                <source title="王若琳 - Wild World.mp3" src="http://music.huoxing.com/upload/20121215/1355575227640_8200.mp3" />
+                
+            </audio>
+        </div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="AudioPlayer.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#myAudio").initAudio();
+            });
+        </script>
+    </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
     </body>
     </html>
     
