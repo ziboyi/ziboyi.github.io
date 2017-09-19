@@ -11,14 +11,14 @@ a ,a:hover{text-decoration: none;}
 	border-bottom: none;
 	width: 310px;
 	border-radius: 4px 4px 0 0;
-	/*background:-webkit-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat left top,
-				url(bg.jpg) no-repeat left top;
-	background:-moz-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat left top,
-				url(bg.jpg) no-repeat left top;
-	background:-ms-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat left top,
-				url(bg.jpg) no-repeat left top;
-	background:linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat left top,
-				url(bg.jpg) no-repeat left top;*/
+	background:-webkit-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat right top,
+				url(bg.jpg) no-repeat right top;
+	background:-moz-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat right top,
+				url(bg.jpg) no-repeat right top;
+	background:-ms-linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat right top,
+				url(bg.jpg) no-repeat right top;
+	background:linear-gradient(top,rgba(0,0,0,0.4),rgba(0,0,0,0.4)) no-repeat right top,
+				url(bg.jpg) no-repeat right top;
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 }
