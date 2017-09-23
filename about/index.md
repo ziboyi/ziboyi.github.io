@@ -14,8 +14,8 @@ comments: false
     line-height:30px;
     background-color:#eeeeee;
     height:300px;
-    width:100px;
-    float:left;
+    width:260px;
+    float:center;
     padding:5px;	      
 }
 #section {
@@ -27,7 +27,7 @@ comments: false
 </head>
 
 <body>
-<img src="{{ site.url }}/assets/img/me.jpeg">
+<img src="{{ site.url }}/assets/img/me.jpg">
 <div id="nav">
 </div>
 
