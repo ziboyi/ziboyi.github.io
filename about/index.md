@@ -52,6 +52,10 @@ I am a Ph.D. student at College of Computer, NUDT, where I received my Master's 
 </p>
 </div>
 
+<div id="footer">
+Copyright ? W3Schools.com
+</div>
+
 </body>
 </html>
 
