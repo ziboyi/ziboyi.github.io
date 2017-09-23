@@ -10,18 +10,30 @@ comments: false
 
 <head>
 <style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
 #nav {
     line-height:30px;
-    /*background-color:#eeeeee;*/
-    height:400px;
+    height:300px;
     width:260px;
-    float:center;
-    padding:5px;	      
+    float:left;
+    padding:5px;
 }
 #section {
     width:350px;
     float:left;
-    padding:10px;	 	 
+    padding:10px;
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;
 }
 </style>
 </head>
@@ -44,15 +56,8 @@ I am a Ph.D. student at College of Computer, NUDT, where I received my Master's 
 </html>
 
 ## Experience
-* Minimal, you can focus on your content
-* Responsive
-* Disqus integration
-* Syntax highlighting
-* Optional post image
-* Social icons
-* Page for sharing projects
-* Optional background image
-* Simple navigation menu
-* MathJax support
+* Ph.D. student, College of Computer, NUDT. (Jan. 2017 - Now)
+* Master student, College of Computer, NUDT. (Sep. 2014 - Dec. 2016)
+* Study in Huazhong University of Science and Technology. (Sep. 2010 - June. 2014)
 
 ## Research
