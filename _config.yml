@@ -5,7 +5,7 @@ bio:                'The quieter you become, the more you are able to hear.'
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/logo.png'
-background:         'assets/img/placeholder-big.jpg'
+background:         'assets/img/homepagebackground.png'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
 url:                https://ziboyi.github.io/
@@ -26,7 +26,8 @@ sass:
   style:            compressed
 
 # Comments
-disqus_shortname:   taylantatli
+# Just comments it, don't know what it means
+#disqus_shortname:   taylantatli
 
 # Social
 # if you don't have any of social below, comment the line.
