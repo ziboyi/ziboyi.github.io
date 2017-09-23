@@ -1,3 +1,3 @@
-1.点击CD可以打开音乐播放列表
-2.拖动本地音乐文件到播放器可以直接添加歌曲
-3.也可以通过增加<source>标签来引入外部音乐链接
+1. Pressing the CD will show a play list.
+2. You can drag the local audio file to the CD player.
+3. Insert <Source> label in fireworks.html to add more music.
