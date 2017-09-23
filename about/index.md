@@ -18,7 +18,7 @@ comments: false
 }
 #nav {
     line-height:30px;
-    height:300px;
+    height:190px;
     width:260px;
     float:left;
     padding:5px;
@@ -53,7 +53,6 @@ I am a Ph.D. student at College of Computer, NUDT, where I received my Master's 
 </div>
 
 <div id="footer">
-Copyright ? W3Schools.com
 </div>
 
 </body>
