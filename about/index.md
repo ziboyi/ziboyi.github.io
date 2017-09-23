@@ -12,7 +12,7 @@ comments: false
 <style>
 #nav {
     line-height:30px;
-    background-color:#eeeeee;
+    /*background-color:#eeeeee;*/
     height:300px;
     width:260px;
     float:center;
@@ -27,8 +27,9 @@ comments: false
 </head>
 
 <body>
-<img src="{{ site.url }}/assets/img/me.jpg">
+
 <div id="nav">
+<img src="{{ site.url }}/assets/img/me.jpg">
 </div>
 
 <div id="section">
