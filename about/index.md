@@ -67,9 +67,9 @@ I am a Ph.D. student at College of Computer, NUDT, where I received my Master's 
 * Study in Huazhong University of Science and Technology. (Sep. 2010 - June. 2014)
 
 ## Research
-* <a href="http://ieeexplore.ieee.org/abstract/document/7847149/"  style="text-decoration:none;" target='_blank'>Z. Yi, et al. "Improving JavaScript Malware Classifier's Security against Evasion by Particle Swarm Optimization." Trustcom/BigDataSE/I​SPA, 2016 IEEE.</a>
-* <a href="http://dx.doi.org/10.2991/icpit-16.2016.22"  style="text-decoration:none;" target='_blank'>Z. Yi, et al. "Multiple Classifier Systems for More Accurate JavaScript Malware Detection.", ICPIT, 2016.</a>
-* <a href="https://arxiv.org/abs/1705.03261"  style="text-decoration:none;" target='_blank'>Z. Yi, et al. "Drug-drug Interaction Extraction via Recurrent Neural Network with Multiple Attention Layers."</a>
+* <a href="http://ieeexplore.ieee.org/abstract/document/7847149/"  style="text-decoration:none;" target='\_blank'>Z. Yi, et al. "Improving JavaScript Malware Classifier's Security against Evasion by Particle Swarm Optimization." Trustcom/BigDataSE/I​SPA, 2016 IEEE.</a>
+* <a href="http://dx.doi.org/10.2991/icpit-16.2016.22"  style="text-decoration:none;" target='\_blank'>Z. Yi, et al. "Multiple Classifier Systems for More Accurate JavaScript Malware Detection.", ICPIT, 2016.</a>
+* <a href="https://arxiv.org/abs/1705.03261"  style="text-decoration:none;" target='\_blank'>Z. Yi, et al. "Drug-drug Interaction Extraction via Recurrent Neural Network with Multiple Attention Layers."</a>
 
 ## Projects
 * News analysis.
