@@ -4,12 +4,7 @@ title:  "MathJax Example"
 date:   2015-08-10
 excerpt: "MathJax Example."
 tag:
-- markdown
-- mathjax
-- Latex
-- example
-- test
-- jekyll
+- Markdown Example
 comments: true
 ---
 

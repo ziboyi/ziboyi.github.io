@@ -1,0 +1,107 @@
+
+---
+layout: post
+title: "制作DEB包"
+date: 2017-09-01
+excerpt: "How to make a deb package"
+tags: [Debian, Linux]
+comments: true
+---
+
+## 解 deb 包
+
+deb 是 Debian 系 Linux 使用的软件包格式，也是我最欣赏的软件包格式。我所知道的打 deb 软件包的方法有两种，一种是使用 checkinstall，另一种是使用 dpkg。
+
+checkinstall 不仅仅可以用来打 deb 包，还可以打 rpm 和 tgz 包，而且使用方法相对简单。但是 checkinstall 的运行不是那么稳定，我搞不懂它在什么情况下才能正常运行，而且它的定制性不是很强，使用时老是要交互地输入些信息，所以我还是放弃了使用它来打包软件。感兴趣的朋友可以在网上搜索一下这个程序的使用方法。
+
+dpkg 是 Debian 的“原生”包管理软件，但是很多人不太愿意使用 dpkg 来打包 deb。究其原因可能是需要写麻烦的配置文件，但是写配置文件的一个好处就是在下次打包时候可以直接用上次的配置文件，只修改一个版本号就可以了，而不用每次都需要填包信息。在介绍如何打 deb 包之前，我们现看一下如何解 deb 包。
+
+<pre><code>
+sudo apt-get install tree
+dpkg -X /var/cache/apt/archives/tree_1.5.1.1-1_i386.deb fakeroot
+cd fakeroot
+dpkg -e /var/cache/apt/archives/tree_1.5.1.1-1_i386.deb
+tree
+</code></pre>
+
+输出
+<pre><code>
+.
+|-- DEBIAN
+|   |-- control
+|   |-- md5sums
+|-- usr
+|-- bin
+|   |-- tree
+|-- share
+|-- doc
+|   |-- tree
+|       |-- README
+|       |-- changelog.Debian.gz
+|       |-- changelog.gz
+|       |-- copyright
+|-- man
+|-- man1
+|-- tree.1.gz
+</code></pre>
+
+dpkg -X 是将 deb 包的内容文件释放出来，dpkg -e 是将 deb 包的控制信息释放出来。前面执行那个 sudo apt-get install tree 是为了将 tree_1.5.1.1-1_i386.deb 下载到本地 apt cache，如果您已经安装过 tree 这个软件，可以为 apt-get 加上 -d 参数，使其只下载而不安装。
+
+从上面 tree 命令的执行结果我们发现，deb 包解开后分两部分：一部分是控制信息，在 DEBIAN 目录下；一部分是安装内容，在 usr 目录下。现在您大概明白为什么我们使用 fakeroot 作为目录名了，因为这个目录就是一个"假根目录"，您在这个目录下所有的修改，最后都会被映射到目标机的根目录 / 下。比如 fakeroot/usr/bin/tree 这个文件，就会被安装到 /usr/bin 下，以此类推。
+只要您能理解 fakeroot 这个目录映射，您就知道如何安放自己的文件了。为了让生成的包将文件 foo 安装到目录 /usr/xx/yy 目录下，您只用在 fakeroot 目录下建立 usr/xx/yy 目录，并将 foo 拷贝进去就行了。
+
+
+## 配置control和md5sums
+好，下面进入关键的配置文件部分，关于 control 和 md5sums。
+
+`more DEBIAN/control`
+
+<pre><code>
+Package: tree
+Version: 1.5.1.1-1
+Architecture: i386
+Maintainer: Ubuntu MOTU Developers
+Original-Maintainer: Florian Ernst
+Installed-Size: 92
+Depends: libc6 (>= 2.6-1)
+Section: utils
+Priority: optional
+Description: displays directory tree, in color
+Displays an indented directory tree, using the same color assignments as
+ls, via the LS_COLORS environment variable.
+.
+Homepage: http://mama.indstate.edu/users/ice/tree/
+</code></pre>
+
+我们可以看到，control 文件中包含的主要是软件的版本和维护者信息，我相信大家都能基本看懂上面这些信息什么意思：Package 包名（tree）、Version 版本（1.5.1.1-1）、Architecture 目标机架构（i386 386及以后）、Maintainer 维护者（Ubuntu MOTU Developers）、Original-Maintainer 原维护者（Florian Ernst）、Installed-Size 安装后大小（92K）、Depends 依赖软件包（libc6 不低于 2.6-1 版本）、Section 包分类（工具）、Priority 优先级（可选）、Description 包描述、Homepage 软件主页。
+
+由于咱们分析这个包是 Ubuntu 发布的包，所以包信息给的比较全，其实并不是上面所有的信息都有必要提供（小声说一句，就算全提供也不是很难吧？除了咱不用的，Original-Maintainer 这种就算了）。关于哪些信息比较重要，以及每个域的具体含义和可选项，可以参考 Debian 的文档 Debian Policy Manual Chapter 5 - Control files and their fields 。
+
+您也可以依样画葫芦，写一个类似的 control 文件放到 DEBIAN 目录下，提供一些自己软件包的信息，基本有这个配置文件就可以打包了。
+
+`more DEBIAN/md5sums`
+<pre><code>
+d60a3b4736f761dd1108cb89e58b9d4e usr/bin/tree
+981ea0343c2a3eb37d5fc8b5ac5562df usr/share/man/man1/tree.1.gz
+483a56158a07a730ec60fc36b3f81282 usr/share/doc/tree/README
+ea56d78ae0d54693ae8f3c0908deeeff usr/share/doc/tree/copyright
+4456e04c3c268eabcd10ee9b949a9b9a usr/share/doc/tree/changelog.gz
+ec104db6914cfce2865a0d8c421512bb usr/share/doc/tree/changelog.Debian.gz
+</code></pre>
+
+md5sums，这文件名一看，就知道是保存着软件包中各文件的 md5 校验值，用来校验软件包是否被损坏了。其实这个文件纯属“腊月三十逮兔子，有它没它都过年”，您可以完全不提供它。
+
+##打包
+
+这样呢，我们就准备好了 deb 包的内容文件和控制信息：控制文件放在了 fakeroot/DEBIAN 目录下，内容文件放在 fakeroot/usr 下，目录树就像开头 tree 命令的结果。下面只需要一个命令就能打出来 deb 安装包了：
+
+`cd ..`
+`dpkg -b fakeroot/ foo.deb`
+
+这时候当前目录下就出现了 foo.deb。您可以使用 dpkg -I foo.deb 查看 foo.deb 的控制信息，dpkg -c foo.deb 查看 foo.deb 包含了什么文件，sudo dpkg -i 安装 foo.deb。
+
+小技巧：
+1. 如果您懒得自己新建一个控制文件和目录树，您完全可以像本文开头那样，找一个简单的软件包，将它的内容和控制信息释放出来，对它进行修改，然后打出来自己的包。
+2. 生成 md5sums 文件不是什么难事，您只需要在 fakeroot 目录使用下面这个命令：<pre><code>md5sum \`find usr -type f\` > DEBIAN/md5sums</code></pre>或者
+ <pre><code>find usr/ -type f -exec md5sum {} + > DEBIAN/md5sums</code></pre>
+3. 将您的可执行文件拷贝到 fakeroot/usr 下并不一定要手动一个个拷。如果您使用 GNU 自动工具集，./configure 时加个参数 --prefix=fakeroot/usr/ 即可；如果您自己写的 Makefile，可以在 Makefile 中使用一个变量 PREFIX=/usr，当您不加参数时，make install 的安装目标就是 /usr 下，您可以使用 Makefile -e PREFIX=fakeroot/usr/ install 来覆盖 Makefile 中的变量设置。
