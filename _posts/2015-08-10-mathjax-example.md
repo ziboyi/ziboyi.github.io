@@ -6,6 +6,7 @@ excerpt: "MathJax Example."
 tag:
 - markdown
 - mathjax
+- Latex
 - example
 - test
 - jekyll
