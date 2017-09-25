@@ -2,9 +2,9 @@
 layout: post
 title:  "MathJax Example"
 date:   2015-08-10
-excerpt: "MathJax Example for Moon Jekyll Theme."
+excerpt: "MathJax Example."
 tag:
-- markdown 
+- markdown
 - mathjax
 - example
 - test
@@ -24,15 +24,15 @@ mathjax: true
 ~~~
 
 ~~~
-Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
+Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering:
 \\[ \frac{1}{n^{2}} \\]
 ~~~
 
-Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
+Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering:
 \\[ \frac{1}{n^{2}} \\]
 
 The only thing to look out for is the escaping of the backslash when using markdown, so the delimiters become `\\[ ... \\]` and `\\( ... \\)` for inline and block maths respectively.
-    
+
 
 $$
 \begin{align*}
