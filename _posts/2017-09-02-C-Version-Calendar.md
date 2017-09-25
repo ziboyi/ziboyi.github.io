@@ -79,3 +79,10 @@ int main()
 
 
 ```
+
+The result should be:
+
+
+<figure class="third">
+	<img src="https://ziboyi.github.io/assets/img/calender.png">
+</figure>
