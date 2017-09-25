@@ -76,13 +76,8 @@ int main()
     return 0;
 
 }
-
-
 ```
 
 The result should be:
 
-
-<figure class="third">
-	<img src="https://ziboyi.github.io/assets/img/calender.png">
-</figure>
+![Calendar Result](https://ziboyi.github.io/assets/img/calendar.png)
