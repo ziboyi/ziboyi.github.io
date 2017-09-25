@@ -7,7 +7,7 @@ tags: [C]
 comments: true
 ---
 
-```C
+```c
 #include <stdio.h>
 
 int isLeapYear(int year)
