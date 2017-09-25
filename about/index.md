@@ -73,6 +73,7 @@ I am a Ph.D. student at College of Computer, NUDT, where I received my Master's 
 
 ## Projects
 * News analysis.
+* Drug Drug Interaction.
 * N (3, 8, 15, 24, 35) - Puzzle problem.
 * Duplicated Questions Detection.
 * A linux transplantation of Youdao Dictionary.
