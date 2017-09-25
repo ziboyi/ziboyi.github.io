@@ -47,7 +47,7 @@ comments: false
 <div id="section">
 <h2>Zibo Yi</h2>
 <p>
-I am a Ph.D. student at College of Computer, NUDT, where I received my Master's degree. Before I came to NUDT, I received my Bachelor's degree in HUST. Now I'm interested in coding and StarCraft II.<br>
+I am a Ph.D. student at College of Computer, NUDT, where I received my Master's degree. Before I came to NUDT, I received my Bachelor's degree in HUST. I'm interested in coding and StarCraft II.<br>
 
 </p>
 </div>
@@ -67,3 +67,12 @@ I am a Ph.D. student at College of Computer, NUDT, where I received my Master's 
 * Study in Huazhong University of Science and Technology. (Sep. 2010 - June. 2014)
 
 ## Research
+* [Z. Yi, et al. "Improving JavaScript Malware Classifier's Security against Evasion by Particle Swarm Optimization." Trustcom/BigDataSE/I​SPA, 2016 IEEE. IEEE, 2016.](http://ieeexplore.ieee.org/abstract/document/7847149/)
+* [Z. Yi, et al. "Multiple Classifier Systems for More Accurate JavaScript Malware Detection"](http://dx.doi.org/10.2991/icpit-16.2016.22)
+* [Z. Yi, et al. "Drug-drug Interaction Extraction via Recurrent Neural Network with Multiple Attention Layers"](https://arxiv.org/abs/1705.03261)
+
+## Projects
+* News analysis.
+* N (3, 8, 15, 24, 35) - Puzzle problem.
+* Duplicated Questions Detection.
+* A linux transplantation of Youdao Dictionary.
