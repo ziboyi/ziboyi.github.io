@@ -72,7 +72,7 @@ I am a Ph.D. student at College of Computer, NUDT, where I received my Master's 
 * <a href="http://ieeexplore.ieee.org/abstract/document/7847149/"  style="text-decoration:none;" target='\_blank'>Z. Yi, et al. "Improving JavaScript Malware Classifier's Security against Evasion by Particle Swarm Optimization." Trustcom/BigDataSE/ISPA, 2016 IEEE.</a>
 
 ## Projects
-* News analysis.
+* <a href="https://github.com/ziboyi/News-Analysis"  style="text-decoration:none;" target='\_blank'>News analysis.</a>
 * Drug Drug Interaction.
 * <a href="https://github.com/ziboyi/nPuzzle"  style="text-decoration:none;" target='\_blank'>N (3, 8, 15, 24, 35) - Puzzle problem.</a>
 * <a href="https://github.com/ziboyi/Duplicated-Questions-Detection"  style="text-decoration:none;" target='\_blank'>Duplicated Questions Detection.</a>
