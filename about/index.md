@@ -74,6 +74,6 @@ I am a Ph.D. student at College of Computer, NUDT, where I received my Master's 
 ## Projects
 * News analysis.
 * Drug Drug Interaction.
-* N (3, 8, 15, 24, 35) - Puzzle problem.\[[view](https://github.com/ziboyi/nPuzzle)\]
-* Duplicated Questions Detection. \[[view](https://github.com/ziboyi/Duplicated-Questions-Detection)\]
+* <a href="https://github.com/ziboyi/nPuzzle"  style="text-decoration:none;" target='\_blank'>N (3, 8, 15, 24, 35) - Puzzle problem.</a>
+* <a href="https://github.com/ziboyi/Duplicated-Questions-Detection"  style="text-decoration:none;" target='\_blank'>Duplicated Questions Detection.</a>
 * A linux transplantation of Youdao Dictionary.
