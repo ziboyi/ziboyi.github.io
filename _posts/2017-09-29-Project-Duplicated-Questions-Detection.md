@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Duplicated Questions Detection"
-date:   2016-04-06
+date:   2017-09-29
 excerpt: "Detecting duplicated questions in Quora"
 project: true
 tag:
