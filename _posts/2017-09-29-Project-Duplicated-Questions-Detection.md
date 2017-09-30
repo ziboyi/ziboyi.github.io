@@ -35,7 +35,7 @@ The remaining part of this section will describle the model layer by layer.
 
 ### Embedding Layer
 
-Giving a sentence \\( S=(w_1, w_2,..., w_t) \\), each word will represented as a column vector \\( x_i \\).
+Giving a sentence \\( S=(w_1, w_2,..., w_t) \\), each word will represented as a row vector \\( x_i \\).
 
 ### Encoding Layer
 
@@ -51,7 +51,7 @@ The following picture shows the LSTM cell.
 
 The output of each cell \\( h_i \\) are computed by the following equation,
 
-\\[ \\]
+\\[ f_i=\sigma([h_{i-1},x_i]W_f+b_f) \\]
 \\[ \\]
 \\[ \\]
 \\[ \\]
