@@ -57,3 +57,12 @@ The output of each cell \\( h_i \\) are computed by the following equation,
 \\[ c_i=c_{i-1}\otimes{f_i}+i_i\otimes{g_i} \\]
 \\[ o_i=\sigma([h_{i-1},x_i]W_o+b_o)\\]
 \\[ h_i={\textrm{tanh}}(c_i)\otimes{o_i} \\]
+
+\\[ p=[r_1,r_2,r_1-r_2,r_1\cdot{r_2}] \\]
+\\[ H_3={\textrm{relu}}(pW_3+b_3) \\]
+\\[ H_4={\textrm{relu}}(H_3W_4+b_4) \\]
+\\[ s={\textrm{softmax}}(H_4W_5+b_5) \\]
+\\[ y={\textrm{argmax}}_i{s_i} \\]
+\\[ l_i=-\sum_{c\in C}{y_{ic}{\textrm{ln}}(s_{ic})} \\]
+\\[ l=\frac{1}{N}\sum_{i=1}^N{l_i}=-\frac{1}{N}\sum_{i=1}^N{\sum_{c\in C}{y_{ic}{\textrm{ln}}(s_{ic})}} \\]
+\\[ \theta=\{W_f,b_f,W_i,b_i,W_g,b_g,W_o,b_o,W_3,b_3,W_4,b_4,W_5,b_5\} \\]
