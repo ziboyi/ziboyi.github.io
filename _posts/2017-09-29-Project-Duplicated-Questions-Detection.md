@@ -52,8 +52,8 @@ The following picture shows the LSTM cell.
 The output of each cell \\( h_i \\) are computed by the following equation,
 
 \\[ f_i=\sigma([h_{i-1},x_i]W_f+b_f) \\]
-\\[ \\]
-\\[ \\]
-\\[ \\]
-\\[ \\]
-\\[ \\]
+\\[ i_i=\sigma([h_{i-1},x_i]W_i+b_i) \\]
+\\[ g_i={\textrm{tanh}}([h_{i-1},x_i]W_g+b_g) \\]
+\\[ c_i=c_{i-1}\otimes{f_i}+i_i\otimes{g_i} \\]
+\\[ o_i=\sigma([h_{i-1},x_i]W_o+b_o)\\]
+\\[ h_i={\textrm{tanh}}(c_i)\otimes{o_i} \\]
