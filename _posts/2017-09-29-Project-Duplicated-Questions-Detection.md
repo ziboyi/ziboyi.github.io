@@ -58,13 +58,29 @@ The output of each cell \\( h_i \\) are computed by the following equation,
 \\[ o_i=\sigma([h_{i-1},x_i]W_o+b_o)\\]
 \\[ h_i={\textrm{tanh}}(c_i)\otimes{o_i} \\]
 
+### Multiple Layer Perceptron
+
+The input of MLP is
+
 \\[ p=[r_1,r_2,r_1-r_2,r_1\cdot{r_2}] \\]
+
+and MLP classifies feature vector \\( p \\) as a class that indicate whether the two questions are the same. Class 0 means the two questions are not duplicate, while class 1 means they are duplicate. Let \\( y \\) denotes the class. MLP and \\( y \\) are calculated as follows,
+
 \\[ H_3={\textrm{relu}}(pW_3+b_3) \\]
 \\[ H_4={\textrm{relu}}(H_3W_4+b_4) \\]
 \\[ s={\textrm{softmax}}(H_4W_5+b_5) \\]
 
 \\[ y={\textrm{argmax}}_i{s_i} \\]
 
+### Training the Model
+
+For the given two sentence, the loss function is:
+
 \\[ l_i=-\sum_{c\in C}{y_{ic}{\textrm{ln}}(s_{ic})} \\]
 \\[ l=\frac{1}{N}\sum_{i=1}^N{l_i}=-\frac{1}{N}\sum_{i=1}^N{\sum_{c\in C}{y_{ic}{\textrm{ln}}(s_{ic})}} \\]
+
+\\( y_{ic} \\) means that whether instance \\( i \\) belongs in class \\( c \\). The parameters of this model are as follows.
+
 \\[ \theta=\{W_f,b_f,W_i,b_i,W_g,b_g,W_o,b_o,W_3,b_3,W_4,b_4,W_5,b_5\} \\]
+
+Use optimization method "Adam" to optimaze the loss function. After training, the model can tell whether two given sentences are asking the same thing.
