@@ -23,6 +23,9 @@ Quora issues the dataset \[2\] for duplicated questions detection. Part of the d
 
 ![](https://github.com/ziboyi/Duplicated-Questions-Detection/blob/master/figure/Duplicated-Questions.png?raw=true)
 
+<img src="https://github.com/ziboyi/Duplicated-Questions-Detection/blob/master/figure/Duplicated-Questions.png?raw=true"  align=center />
+
+
 We need a model that can tell whether two questions are duplicated.
 
 ## The Model
