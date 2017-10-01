@@ -83,4 +83,37 @@ For the given two sentence, the loss function is:
 
 \\[ \theta=\{W_f,b_f,W_i,b_i,W_g,b_g,W_o,b_o,W_3,b_3,W_4,b_4,W_5,b_5\} \\]
 
-Use optimization method "Adam" to optimaze the loss function. After training, the model can tell whether two given sentences are asking the same thing.
+Use optimization method "Adam"[3] to optimaze the loss function. After training, the model can tell whether two given sentences are asking the same thing.
+
+## Experiment
+
+Dataset is split to training and testing set during preprocessing.
+
+![](https://github.com/ziboyi/Duplicated-Questions-Detection/blob/master/figure/preprocessing.png?raw=true)
+
+Next step train this model, please check the hyperparameters.
+
+![](https://github.com/ziboyi/Duplicated-Questions-Detection/blob/master/figure/training.png?raw=true)
+
+Then evaluate this model after training.
+
+![](https://github.com/ziboyi/Duplicated-Questions-Detection/blob/master/figure/eval-RNN.png?raw=true)
+
+I modify the model to CNN version and evaluate it again. I also use Jaccard similarity as the baseline, the evaluation are shown in the following table.
+
+| Model | Accuracy | Precision | Recall | F1 |
+|:--------|:-------:|--------:|:-------:|--------:|
+| baseline | 0.6657   | 0.5151   | 0.7297 | 0.6039 |
+| CNN based model | 0.7911   | 0.6894   | 0.7316 | 0.7098 |
+| LSTM based model | 0.8126   | 0.7085   | 0.7874 | 0.7459 |
+{: rules="groups"}
+
+## Conclusions
+
+LSTM based model has a better performance in this task.
+
+## References
+
+[1] Jaccard, P. (1901). Étude comparative de la distribution florale dans une portion des Alpes et des Jura. Bulletin de la SociétéVaudoise des Sciences Naturelles 37, 547-579.
+[2] https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs, Quora Duplicate Questions Dataset.
+[3] Kingma D, Ba J. Adam: A method for stochastic optimization[J]. arXiv preprint arXiv:1412.6980, 2014.
