@@ -115,5 +115,7 @@ LSTM based model has a better performance in this task.
 ## References
 
 [1] Jaccard, P. (1901). Étude comparative de la distribution florale dans une portion des Alpes et des Jura. Bulletin de la SociétéVaudoise des Sciences Naturelles 37, 547-579.
+
 [2] https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs, Quora Duplicate Questions Dataset.
+
 [3] Kingma D, Ba J. Adam: A method for stochastic optimization[J]. arXiv preprint arXiv:1412.6980, 2014.
