@@ -23,6 +23,8 @@ Quora issues the dataset \[2\] for duplicated questions detection. Part of the d
 
 ![](https://github.com/ziboyi/Duplicated-Questions-Detection/blob/master/figure/Duplicated-Questions.png?raw=true)
 
+<img src="https://github.com/ziboyi/Duplicated-Questions-Detection/blob/master/figure/Duplicated-Questions.png?raw=true" width="" height="" alt=""/>
+
 <img src="http://ww2.sinaimg.cn/bmiddle/88070423gw1ep30aw8an7g204d04gkgd.gif" width="" height="" alt="亦菲表演机器猫"/>
 
 
