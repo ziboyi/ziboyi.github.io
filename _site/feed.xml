@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-11-09T10:10:20+08:00</updated><id>/</id><title type="html">Zibo Yi</title><entry><title type="html">Duplicated Questions Detection</title><link href="/Project-Duplicated-Questions-Detection/" rel="alternate" type="text/html" title="Duplicated Questions Detection" /><published>2017-09-29T00:00:00+08:00</published><updated>2017-09-29T00:00:00+08:00</updated><id>/Project-Duplicated-Questions-Detection</id><content type="html" xml:base="/Project-Duplicated-Questions-Detection/">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-11-15T12:16:54+08:00</updated><id>/</id><title type="html">Zibo Yi</title><entry><title type="html">感知机收敛定理</title><link href="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/" rel="alternate" type="text/html" title="感知机收敛定理" /><published>2017-11-15T00:00:00+08:00</published><updated>2017-11-15T00:00:00+08:00</updated><id>/感知机收敛定理</id><content type="html" xml:base="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/">&lt;p&gt;证明感知机收敛定理：对于二分类问题，若数据集线性可分，则感知机学习算法一定能找到能将数据集分开的权重&lt;/p&gt;
+
+&lt;p&gt;感知机学习算法：if \( y_i \neq \textrm{sign}(w_n^T \cdot x_i) \), update \( w_n \) with \( w_{n+1} \leftarrow w_n + y_i x_i \)&lt;/p&gt;
+
+&lt;p&gt;数据集线性可分 \( \Leftrightarrow \exists w_f \)将数据集分开 \( \Leftrightarrow y_i(w_f^T \cdot x_i) &amp;gt; 0 \)&lt;/p&gt;
+
+&lt;p&gt;令 \( \rho = \textrm{min} y_i \frac{w_f^T}{| w_f |} x_i, R^2 = \textrm{max} {| x_n |}^2\)&lt;/p&gt;
+
+&lt;p&gt;设\( w_0 = 0 \)，经T次迭代之后，权重变为\( w_T = \sum_{i=1}^{T}y_i x_i \)&lt;/p&gt;
+
+&lt;p&gt;\( \frac{w_f^T w_T}{| w_f |} = \frac{w_f^T \sum_{i=1}^{T}y_i x_i}{| w_f |} = \frac{\sum_{i=1}^{T}w_f^T y_i x_i}{| w_f |} \geq T \rho \)&lt;/p&gt;
+
+&lt;p&gt;\( {|w_T|}^2 = {| w_{T-1} + y_T \cdot x_T |}^2 = {| w_{T-1} |}^2 + {| x_T |}^2 + 2 y_T w_{T-1}^T x_T  \leq {| w_{T-1} |}^2 + {| x_T |}^2 \leq … \leq \sum_{i=1}^{T}{| x_i |}^2 \leq TR^2\)&lt;/p&gt;
+
+&lt;p&gt;故 \( 1 \geq \frac{w_f^T w_T}{| w_f | | w_T |} \geq \frac{T \rho}{\sqrt{T} |R|} \)&lt;/p&gt;
+
+&lt;p&gt;故T的上界为\( \frac{ {|R|}^2 }{ {\rho}^2 } \)&lt;/p&gt;</content><category term="Machine Learning" /><summary type="html">证明感知机收敛定理</summary></entry><entry><title type="html">Duplicated Questions Detection</title><link href="/Project-Duplicated-Questions-Detection/" rel="alternate" type="text/html" title="Duplicated Questions Detection" /><published>2017-09-29T00:00:00+08:00</published><updated>2017-09-29T00:00:00+08:00</updated><id>/Project-Duplicated-Questions-Detection</id><content type="html" xml:base="/Project-Duplicated-Questions-Detection/">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
 
 &lt;p&gt;In Quora, there are too many questions meaning the same. For example, the two sentence “What is the most populous state in the USA?” and “Which state in the United States has the most people?” are asking the same thing. If duplicated questions are detected, it would be more efficient for user searching answers.&lt;/p&gt;
 
