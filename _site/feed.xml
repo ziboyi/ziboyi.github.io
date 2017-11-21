@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-11-15T12:16:54+08:00</updated><id>/</id><title type="html">Zibo Yi</title><entry><title type="html">感知机收敛定理</title><link href="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/" rel="alternate" type="text/html" title="感知机收敛定理" /><published>2017-11-15T00:00:00+08:00</published><updated>2017-11-15T00:00:00+08:00</updated><id>/感知机收敛定理</id><content type="html" xml:base="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/">&lt;p&gt;证明感知机收敛定理：对于二分类问题，若数据集线性可分，则感知机学习算法一定能找到能将数据集分开的权重&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-11-21T20:39:07+08:00</updated><id>/</id><title type="html">Zibo Yi</title><entry><title type="html">支持向量机</title><link href="/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="alternate" type="text/html" title="支持向量机" /><published>2017-11-16T00:00:00+08:00</published><updated>2017-11-16T00:00:00+08:00</updated><id>/支持向量机</id><content type="html" xml:base="/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">&lt;h2 id=&quot;考虑在线性可分集上的超平面将两类点分开&quot;&gt;考虑在线性可分集上的超平面将两类点分开&lt;/h2&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/posts/SVM/margin.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;设图中的超平面为\( w^T x + b = 0 \), 样本集到超平面的距离为：\( \rho = \textrm{min} \frac{y_i(w^T x_i + b)}{|w|} = \frac{a}{|w|}\) (即图中的margin为\(\frac{a}{|w|}\))&lt;/p&gt;
+
+&lt;p&gt;SVM的优化目标：最大化\(\frac{a}{|w|}\)，约束为\( y_i(w^T x_i + b) \geq a\)&lt;/p&gt;
+
+&lt;p&gt;令\( \hat{w} = \frac{w}{a}, \hat{b}=\frac{b}{a}\), 则优化目标变为：最大化\(\frac{1}{|\hat{w}|}\)，约束为\( y_i(\hat{w}^T x_i + \hat{b}) \geq 1\)&lt;/p&gt;
+
+&lt;p&gt;注意：将超平面由\( w^T x + b = 0 \)变换到\( \hat{w}^T x + \hat{b} = 0 \)并不改变分类结果，因为\( \textrm{sign}(w^T x + b) =  \textrm{sign}(\hat{w}^T x + \hat{b})\)&lt;/p&gt;
+
+&lt;p&gt;不妨将优化目标记为：\(\textrm{min} \frac{1}{2}{|w|}^2, s.t. y_i(w^T x_i + b) \geq 1, \forall i\)&lt;/p&gt;
+
+&lt;h2 id=&quot;lagrange乘数法与kkt条件&quot;&gt;Lagrange乘数法与KKT条件&lt;/h2&gt;
+
+&lt;p&gt;构造拉格朗日函数（\(\alpha_i\)非负)：\(L(w,b,\alpha)=\frac{1}{2}|w|^2-\sum{\alpha_i[y_i(w^T x_i + b)-1]}\)&lt;/p&gt;
+
+&lt;p&gt;使得\(L\)取得极值的\(w,b,\alpha\)需满足：\(\frac{\partial L}{\partial w}=0;\frac{\partial L}{\partial b}=0;\forall i,\alpha_i[y_i(w^T x_i + b)-1]=0\). 即：&lt;/p&gt;
+
+&lt;p&gt;\[w=\sum{\alpha_i y_i x_i}\]
+\[\sum{\alpha_i y_i}=0\]
+\[\alpha_i=0 \textrm{ OR } y_i(w^T x_i + b)=1, \forall i\]&lt;/p&gt;
+
+&lt;p&gt;则\[L=\frac{1}{2}w^T w - \sum{\alpha_i y_i w^T x_i} - b\sum{\alpha_i y_i} + \sum{\alpha_i}\]&lt;/p&gt;
+
+&lt;p&gt;\[L=\frac{1}{2}w^T\sum{\alpha_i y_i x_i} - \sum{\alpha_i y_i w^T x_i} - 0 + \sum{\alpha_i} \]
+\[L= \sum{\alpha_i} - \frac{1}{2}\sum{\alpha_i y_i w^T x_i} \]
+\[L= \sum{\alpha_i} - \frac{1}{2}\sum\sum{\alpha_i y_i \alpha_j y_j x_i^T x_j}\]&lt;/p&gt;
+
+&lt;h2 id=&quot;对偶问题&quot;&gt;对偶问题&lt;/h2&gt;
+
+&lt;p&gt;转化成求如下对偶问题：
+\[\textrm{max} Q(\alpha)=\sum{\alpha_i}-\frac{1}{2}\sum\sum{\alpha_i y_i \alpha_j y_j x_i^T x_j} \textrm{  s.t. } \sum{\alpha_i y_i}=0, \alpha_i \geq 0\]&lt;/p&gt;
+
+&lt;p&gt;注意，支持向量的\(\alpha_i \neq 0\)，即满足\(y_i(w^T x_i + b)=1\)的点，求解该对偶问题可以得到\(\alpha_i\)，则&lt;/p&gt;
+
+&lt;p&gt;\[w = \sum{\alpha_i y_i x_i}\]
+\[b = y_i - w^T x_i \textrm{ (Any } (x_i, y_i) \textrm{ which satisfies } \alpha_i \neq 0 \textrm{ will be alright.)}\]&lt;/p&gt;</content><category term="Machine Learning" /><category term="SVM" /><summary type="html">线性可分集与线性不可分集上的支持向量机</summary></entry><entry><title type="html">感知机收敛定理</title><link href="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/" rel="alternate" type="text/html" title="感知机收敛定理" /><published>2017-11-15T00:00:00+08:00</published><updated>2017-11-15T00:00:00+08:00</updated><id>/感知机收敛定理</id><content type="html" xml:base="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/">&lt;p&gt;证明感知机收敛定理：对于二分类问题，若数据集线性可分，则感知机学习算法一定能找到能将数据集分开的权重&lt;/p&gt;
 
 &lt;p&gt;感知机学习算法：if \( y_i \neq \textrm{sign}(w_n^T \cdot x_i) \), update \( w_n \) with \( w_{n+1} \leftarrow w_n + y_i x_i \)&lt;/p&gt;
 
@@ -751,99 +791,11 @@ mathjax: true
 
 &lt;p&gt;An example of a Gist embed below.&lt;/p&gt;
 
-&lt;noscript&gt;&lt;pre&gt;404: Not Found
-&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/mmistakes/6589546.js&quot;&gt; &lt;/script&gt;
-
+&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/mmistakes/6589546.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Syntax_highlighting&quot;&gt;http://en.wikipedia.org/wiki/Syntax_highlighting&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><category term="Markdown Example" /><summary type="html">Demo post displaying the various ways of highlighting code in Markdown.</summary></entry><entry><title type="html">A Post with Images</title><link href="/sample-post-images/" rel="alternate" type="text/html" title="A Post with Images" /><published>2013-05-22T00:00:00+08:00</published><updated>2013-05-22T00:00:00+08:00</updated><id>/sample-post-images</id><content type="html" xml:base="/sample-post-images/">&lt;p&gt;Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; with the appropriate &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;. Each instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; is auto-numbered and displayed in the caption.&lt;/p&gt;
-
-&lt;h3 id=&quot;figures-for-images-or-video&quot;&gt;Figures (for images or video)&lt;/h3&gt;
-
-&lt;h4 id=&quot;one-up&quot;&gt;One Up&lt;/h4&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg&quot;&gt;&lt;img src=&quot;http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;&lt;a href=&quot;http://www.flickr.com/photos/80901381@N04/7758832526/&quot; title=&quot;Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr&quot;&gt;Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr&lt;/a&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.&lt;/p&gt;
-
-&lt;h4 id=&quot;two-up&quot;&gt;Two Up&lt;/h4&gt;
-
-&lt;p&gt;Apply the &lt;code class=&quot;highlighter-rouge&quot;&gt;half&lt;/code&gt; class like so to display two images side by side that share the same caption.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;half&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/images/image-filename-1-large.jpg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/images/image-filename-1.jpg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/images/image-filename-2-large.jpg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/images/image-filename-2.jpg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;figcaption&amp;gt;&lt;/span&gt;Caption describing these two images.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figcaption&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;And you’ll get something that looks like this:&lt;/p&gt;
-
-&lt;figure class=&quot;half&quot;&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.JPG&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpeg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;Two images.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h4 id=&quot;three-up&quot;&gt;Three Up&lt;/h4&gt;
-
-&lt;p&gt;Apply the &lt;code class=&quot;highlighter-rouge&quot;&gt;third&lt;/code&gt; class like so to display three images side by side that share the same caption.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;third&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/images/image-filename-1.jpg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/images/image-filename-2.jpg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/images/image-filename-3.jpg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;figcaption&amp;gt;&lt;/span&gt;Caption describing these three images.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figcaption&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;And you’ll get something that looks like this:&lt;/p&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;
-	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;
-	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;
-	&lt;figcaption&gt;Three images.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id=&quot;alternative-way&quot;&gt;Alternative way&lt;/h3&gt;
-
-&lt;p&gt;Another way to achieve the same result is to include &lt;code class=&quot;highlighter-rouge&quot;&gt;gallery&lt;/code&gt; Liquid template. In this case you
-don’t have to write any HTML tags – just copy a small block of code, adjust the parameters (see below)
-and fill the block with any number of links to images. You can mix relative and external links.&lt;/p&gt;
-
-&lt;p&gt;Here is the block you might want to use:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;capture&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-	http://vignette2.wikia.nocookie.net/naruto/images/9/97/Hinata.png
-	http://vignette4.wikia.nocookie.net/naruto/images/7/79/Hinata_Part_II.png
-	http://vignette1.wikia.nocookie.net/naruto/images/1/15/J%C5%ABho_S%C5%8Dshiken.png
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endcapture&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;gallery&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;caption&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Test images&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Parameters:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;caption&lt;/code&gt;: Sets the caption under the gallery (see &lt;code class=&quot;highlighter-rouge&quot;&gt;figcaption&lt;/code&gt; HTML tag above);&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cols&lt;/code&gt;: Sets the number of columns of the gallery.
-Available values: [1..3].&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It will look something like this:&lt;/p&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-    
-    &lt;a href=&quot;http://vignette2.wikia.nocookie.net/naruto/images/9/97/Hinata.png&quot;&gt;&lt;img src=&quot;http://vignette2.wikia.nocookie.net/naruto/images/9/97/Hinata.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-    
-    &lt;a href=&quot;http://vignette4.wikia.nocookie.net/naruto/images/7/79/Hinata_Part_II.png&quot;&gt;&lt;img src=&quot;http://vignette4.wikia.nocookie.net/naruto/images/7/79/Hinata_Part_II.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-    
-    &lt;a href=&quot;http://vignette1.wikia.nocookie.net/naruto/images/1/15/J%C5%ABho_S%C5%8Dshiken.png&quot;&gt;&lt;img src=&quot;http://vignette1.wikia.nocookie.net/naruto/images/1/15/J%C5%ABho_S%C5%8Dshiken.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-    
-    &lt;figcaption&gt;Test images&lt;/figcaption&gt;
-&lt;/figure&gt;</content><category term="Markdown Example" /><summary type="html">Examples and code for displaying images in posts.</summary></entry></feed>
+&lt;/div&gt;</content><category term="Markdown Example" /><summary type="html">Demo post displaying the various ways of highlighting code in Markdown.</summary></entry></feed>
