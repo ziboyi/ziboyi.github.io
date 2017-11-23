@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-11-23T09:42:11+08:00</updated><id>/</id><title type="html">Zibo Yi</title><entry><title type="html">支持向量机</title><link href="/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="alternate" type="text/html" title="支持向量机" /><published>2017-11-16T00:00:00+08:00</published><updated>2017-11-16T00:00:00+08:00</updated><id>/支持向量机</id><content type="html" xml:base="/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">&lt;h2 id=&quot;考虑在线性可分集上的超平面将两类点分开&quot;&gt;考虑在线性可分集上的超平面将两类点分开&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-11-23T11:46:44+08:00</updated><id>/</id><title type="html">Zibo Yi</title><entry><title type="html">支持向量机</title><link href="/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="alternate" type="text/html" title="支持向量机" /><published>2017-11-16T00:00:00+08:00</published><updated>2017-11-16T00:00:00+08:00</updated><id>/支持向量机</id><content type="html" xml:base="/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">&lt;h2 id=&quot;1考虑在线性可分集上的超平面将两类点分开&quot;&gt;1.考虑在线性可分集上的超平面将两类点分开&lt;/h2&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/posts/SVM/margin.png&quot; /&gt;
+    &lt;img src=&quot;/posts/SVM/margin.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;设图中的超平面为\( w^T x + b = 0 \), 样本集到超平面的距离为：\( \rho = \textrm{min} \frac{y_i(w^T x_i + b)}{|w|} = \frac{a}{|w|}\) (即图中的margin为\(\frac{a}{|w|}\))&lt;/p&gt;
@@ -14,7 +14,7 @@
 
 &lt;p&gt;不妨将优化目标记为：\(\textrm{min} \frac{1}{2}{|w|}^2, s.t. y_i(w^T x_i + b) \geq 1, \forall i\)&lt;/p&gt;
 
-&lt;h2 id=&quot;lagrange乘数法与kkt条件&quot;&gt;Lagrange乘数法与KKT条件&lt;/h2&gt;
+&lt;h3 id=&quot;lagrange乘数法与kkt条件&quot;&gt;Lagrange乘数法与KKT条件&lt;/h3&gt;
 
 &lt;p&gt;构造拉格朗日函数（\(\alpha_i\)非负)：\(L(w,b,\alpha)=\frac{1}{2}|w|^2-\sum{\alpha_i[y_i(w^T x_i + b)-1]}\)&lt;/p&gt;
 
@@ -35,7 +35,7 @@ L &amp;amp;= \frac{1}{2}w^T w - \sum{\alpha_i y_i w^T x_i} - b\sum{\alpha_i y_i}
 \end{align}
 &lt;/div&gt;
 
-&lt;h2 id=&quot;对偶问题&quot;&gt;对偶问题&lt;/h2&gt;
+&lt;h3 id=&quot;对偶问题&quot;&gt;对偶问题&lt;/h3&gt;
 
 &lt;p&gt;转化成求如下对偶问题：
 \[\textrm{max} Q(\alpha)=\sum{\alpha_i}-\frac{1}{2}\sum\sum{\alpha_i y_i \alpha_j y_j x_i^T x_j} \textrm{  s.t. } \sum{\alpha_i y_i}=0, \alpha_i \geq 0\]&lt;/p&gt;
@@ -43,7 +43,54 @@ L &amp;amp;= \frac{1}{2}w^T w - \sum{\alpha_i y_i w^T x_i} - b\sum{\alpha_i y_i}
 &lt;p&gt;注意，支持向量的\(\alpha_i \neq 0\)，即满足\(y_i(w^T x_i + b)=1\)的点，求解该对偶问题可以得到\(\alpha_i\)，则&lt;/p&gt;
 
 &lt;p&gt;\[w = \sum{\alpha_i y_i x_i}\]
-\[b = y_i - w^T x_i \textrm{ (Any } (x_i, y_i) \textrm{ which satisfies } \alpha_i \neq 0 \textrm{ will be alright.)}\]&lt;/p&gt;</content><category term="Machine Learning" /><category term="SVM" /><summary type="html">线性可分集与线性不可分集上的支持向量机</summary></entry><entry><title type="html">感知机收敛定理</title><link href="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/" rel="alternate" type="text/html" title="感知机收敛定理" /><published>2017-11-15T00:00:00+08:00</published><updated>2017-11-15T00:00:00+08:00</updated><id>/感知机收敛定理</id><content type="html" xml:base="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/">&lt;p&gt;证明感知机收敛定理：对于二分类问题，若数据集线性可分，则感知机学习算法一定能找到能将数据集分开的权重&lt;/p&gt;
+\[b = y_i - w^T x_i \textrm{ (Any } (x_i, y_i) \textrm{ which satisfies } \alpha_i \neq 0 \textrm{ will be alright.)}\]&lt;/p&gt;
+
+&lt;h2 id=&quot;2考虑在线性不可分集上的情况&quot;&gt;2.考虑在线性不可分集上的情况&lt;/h2&gt;
+
+&lt;figure&gt;
+    &lt;img src=&quot;/posts/SVM/margin-non-separable.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;\(\exists x_i\), 使得\(y_i(w^T x_i + b) &amp;lt; 1\), 此时的优化目标引入松弛变量\(\xi_i\).&lt;/p&gt;
+
+&lt;p&gt;\[\textrm{min }\frac{1}{2}|w|^2 + C\sum{\xi_i}\]
+\[ \textrm{ s.t. } y_i(w^T x_i + b) \geq 1 - \xi_i, \xi_i \geq 0, \forall i\]&lt;/p&gt;
+
+&lt;h3 id=&quot;lagrange乘数法与kkt条件-1&quot;&gt;Lagrange乘数法与KKT条件&lt;/h3&gt;
+
+&lt;p&gt;构造拉格朗日函数（\(\alpha_i, \beta_i\)非负)：
+\[L(w,b,\xi,\alpha,\beta)=\frac{1}{2}|w|^2 + C\sum{\xi_i} - \sum{\alpha_i[y_i(w^T x_i + b)-1+\xi_i]} - \sum{\beta_i \xi_i}\]&lt;/p&gt;
+
+&lt;p&gt;使得\(L\)取得极值的\(w,b,\xi,\alpha,\beta\)需满足：\(\frac{\partial L}{\partial w}=0;\frac{\partial L}{\partial b}=0;\forall i,\frac{\partial L}{\partial \xi_i}=0;\forall i,\alpha_i[y_i(w^T x_i + b)-1+\xi_i]=0;\)&lt;/p&gt;
+
+&lt;p&gt;\(\forall i, \beta_i \xi_i = 0\). 即：&lt;/p&gt;
+
+&lt;p&gt;\[w=\sum{\alpha_i y_i x_i}\]
+\[\sum{\alpha_i y_i}=0\]
+\[\alpha_i + \beta_i = C\]
+\[\alpha_i=0 \textrm{ OR } y_i(w^T x_i + b) = 1 - \xi_i, \forall i\]
+\[\beta_i=0 \textrm{ OR } \xi_i = 0, \forall i\]&lt;/p&gt;
+
+&lt;p&gt;则&lt;/p&gt;
+
+&lt;div&gt;
+\begin{align}
+L &amp;amp;= \frac{1}{2}w^T w + C\sum{\xi_i} - \sum{\alpha_i y_i w^T x_i} - b\sum{\alpha_i y_i} + \sum{\alpha_i} - \sum{\alpha_i \xi_i} - \sum{\beta_i \xi_i}\\ 
+&amp;amp;= \frac{1}{2}w^T\sum{\alpha_i y_i x_i} + C\sum{\xi_i} - \sum{\alpha_i y_i w^T x_i} - 0 + \sum{\alpha_i} - \sum{\alpha_i \xi_i} - \sum{\beta_i \xi_i} \\ 
+&amp;amp;= \sum{\alpha_i} - \frac{1}{2}\sum{\alpha_i y_i w^T x_i} + \sum{(C - \alpha_i - \beta_i) \xi_i} \\ 
+&amp;amp;= \sum{\alpha_i} - \frac{1}{2}\sum\sum{\alpha_i y_i \alpha_j y_j x_i^T x_j}
+\end{align}
+&lt;/div&gt;
+
+&lt;h3 id=&quot;对偶问题-1&quot;&gt;对偶问题&lt;/h3&gt;
+
+&lt;p&gt;转化成求如下对偶问题：
+\[\textrm{min } Q(\alpha)=\frac{1}{2}\sum\sum{\alpha_i y_i \alpha_j y_j x_i^T x_j} - \sum{\alpha_i} \]
+\[\textrm{  s.t. } \sum{\alpha_i y_i}=0, C \geq \alpha_i \geq 0, \forall i\]&lt;/p&gt;
+
+&lt;p&gt;求解该对偶问题可以得到\(\alpha_i\)，则
+\[w = \sum{\alpha_i y_i x_i}\]
+\[b = y_i - w^T x_i \textrm{ (Any } (x_i, y_i) \textrm{ which satisfies } 0 &amp;lt; \alpha_i &amp;lt; C \textrm{ will be alright.)}\]&lt;/p&gt;</content><category term="Machine Learning" /><category term="SVM" /><summary type="html">线性可分集与线性不可分集上的支持向量机</summary></entry><entry><title type="html">感知机收敛定理</title><link href="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/" rel="alternate" type="text/html" title="感知机收敛定理" /><published>2017-11-15T00:00:00+08:00</published><updated>2017-11-15T00:00:00+08:00</updated><id>/感知机收敛定理</id><content type="html" xml:base="/%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86/">&lt;p&gt;证明感知机收敛定理：对于二分类问题，若数据集线性可分，则感知机学习算法一定能找到能将数据集分开的权重&lt;/p&gt;
 
 &lt;p&gt;感知机学习算法：if \( y_i \neq \textrm{sign}(w_n^T \cdot x_i) \), update \( w_n \) with \( w_{n+1} \leftarrow w_n + y_i x_i \)&lt;/p&gt;
 
